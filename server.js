@@ -5,6 +5,7 @@ const { blogRouter } = require("./Routes/blog.route");
 const { userRouter } = require("./Routes/user.route");
 
 const app = express();
+const PORT = process.env.PORT || 5000
 
 app.use(express.json());
 
@@ -18,7 +19,7 @@ app.use('/api/user', userRouter)
 app.use('/api/blog', blogRouter)
 
 
-app.listen(process.env.PORT, async () => {
+app.listen(PORT, async () => {
   try {
     await connection;
     console.log("Connected to db successfully");
